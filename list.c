@@ -6,7 +6,7 @@
 typedef struct Node Node;
 
 struct Node {
-    const void * data;
+    void * data;
     Node * next;
     Node * prev;
 };
@@ -22,7 +22,7 @@ typedef List List;
 Node * createNode(const void * data) {
     Node * new = (Node *)malloc(sizeof(Node));
     assert(new != NULL);
-    new->data = data;
+    new->data = (void*)data;
     new->prev = NULL;
     new->next = NULL;
     return new;
@@ -41,10 +41,10 @@ void * firstList(List * list) {
 
   if(list->head && list->head->data){
   list->current = list->head;
-  return (void*)list->head->data;
+  return list->head->data;
   }
 
-    return NULL;
+  return NULL;
 }
 
 void * nextList(List * list) {
