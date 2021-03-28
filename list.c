@@ -88,7 +88,7 @@ void pushFront(List * list, const void * data) {
   list->head=x;
   list->head->next = list->current;
 
-  printf(" AAAAAAA %p AAAAAAAA",list->head->data);
+  //printf(" AAAAAAA %p AAAAAAAA",*(list->head->data));
 }
 
 void pushBack(List * list, const void * data) {
