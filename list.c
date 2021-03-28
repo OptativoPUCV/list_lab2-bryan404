@@ -122,25 +122,23 @@ void * popBack(List * list) {
 void * popCurrent(List * list) {
   void* aux = list->current->data;
 
-  
-
+  //Primer caso será el current que tenga 2 nodos a los lados
   if(list->current->prev !=NULL && list->current->next !=NULL){
     list->current->prev->next = list->current->next;
     list->current->next->prev = list->current->prev;
-    list->current = list->current->next;
+    list->current = list->current->next; //actualizamos el current
   }else{
+    //Segundo caso será que el current sea el head
     if(list->current->prev == NULL){
       list->head = list->head->next;
       list->head->prev = NULL;
-      //list->current = list->head;
-    }else{
+      list->current = list->head; //actualizamos el current
+    }else{ //Tercer caso será que el current sea el tail
       list->tail = list->tail->prev;
       list->tail->next = NULL;
-      list->current = list->tail;
+      list->current = list->tail; //actualizamos el current
     }
   }
-
-
     return aux;
 }
 
