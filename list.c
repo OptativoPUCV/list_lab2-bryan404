@@ -120,6 +120,10 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
+  if(list->current->prev && list->current->next){
+    list->current->prev = list->current->next;
+    list->current->next = list->current->prev;
+  }
     return NULL;
 }
 
