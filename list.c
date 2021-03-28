@@ -102,6 +102,10 @@ void pushCurrent(List * list, const void * data) {
     x->next = list->current->next->next;
     x->prev = list->current;
     x->next->prev = x;
+  }else{
+    list->current->next = x;
+    x->prev = list->tail;
+    list->tail = x;
   }
 }
 
