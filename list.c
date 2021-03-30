@@ -80,14 +80,13 @@ void pushFront(List * list, const void * data) {
   if(list->head == NULL){
     //list->head = x; <- no es necesario
     list->tail = x;
+    list->head = x;
   }else{
     list->current = list->head;
     list->head->prev = x;
   }
   list->head=x;
   list->head->next = list->current;
-
-  //printf(" AAAAAAA %d AAAAAAAA",(char) list->head->data);
 }
 
 void pushBack(List * list, const void * data) {
